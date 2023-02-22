@@ -7,8 +7,9 @@ class spaces_model{
         $this->db=Conectar::conexion();
         $this->spaces=array();
     }
+
     public function get_spaces(){
-        $consulta=$this->db->query("select * from spaces;");
+        $consulta=$this->db->query("select * from spaces where id_user = ".$_SESSION['user_id'].";");
         while($filas=$consulta->fetch_assoc()){
             $this->spaces[]=$filas;
         }
