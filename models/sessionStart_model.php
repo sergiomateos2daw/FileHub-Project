@@ -4,8 +4,15 @@ class sessionStart_model{
 
     function login($email, $password) {
         $this->db=Conectar::conexion();
-        $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+        
+        $query = "SELECT * FROM users WHERE email='$email'";
         $result = mysqli_query($this->db, $query);
+        $row = $result->fetch_assoc();
+        $password_hash = $row['password'];
+        if (password_verify($password, $password_hash)) {
+            // Iniciar sesión
+            $query = "SELECT * FROM users WHERE email='$email'";
+            $result = mysqli_query($this->db, $query);
         
         if(mysqli_num_rows($result) == 1) {
             mysqli_close($this->db);
@@ -14,6 +21,10 @@ class sessionStart_model{
             mysqli_close($this->db);
             return false;
         }
+            
+        }
+
+        
     }
     
     function getUsuario($email) {

@@ -7,7 +7,6 @@ $sessionStart=new sessionStart_model();
 if(isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    // $password = password_hash($password, PASSWORD_DEFAULT);
     
     if($sessionStart->login($email, $password)) {
         $user = $sessionStart->getUsuario($email);
