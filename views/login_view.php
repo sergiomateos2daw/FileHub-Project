@@ -23,7 +23,7 @@
     <section class="h-100 gradient-form" style="background-color: #eee;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-10">
+                <div id="contenderFormulario" class="col-xl-10">
                     <div class="card rounded-3 text-black">
                         <div class="row g-0">
                             <div class="col-lg-6">
@@ -53,7 +53,7 @@
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">¿Aún no tienes una cuenta?</p>
-                                            <button type="button" id="registroBoton" class="btn btn-outline-primary">Registrarse</button>
+                                            <button type="button" id="registroBoton" href="./controllers/register_controller.php" class="btn btn-outline-primary">Registrarse</button>
                                         </div>
 
                                     </form>

@@ -24,3 +24,7 @@
 #registroBoton{
     margin: 2px;
 }
+body{
+    background-color: #eee;
+    margin-bottom: 200px;
+}

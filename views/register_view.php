@@ -33,7 +33,7 @@
                                         <img src="../images/LOGO_250x250.png" style="width: 185px;" alt="logo">
                                         <h4 class="mt-1 mb-5 pb-1">Crear cuenta</h4>
                                     </div>
-                                    <form method="POST" action="./controllers/sessionStart_controller.php">
+                                    <form method="POST" action="./controllers/register_in_db_controller.php">
                                         
                                         
                                         <div class="form-outline mb-4">
@@ -49,7 +49,7 @@
                                             <label class="form-label" for="form2Example22">Contraseña</label>
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example22" name="re-password" class="form-control" placeholder="Contraseña" />
+                                            <input type="password" id="form2Example22" name="re_password" class="form-control" placeholder="Contraseña" />
                                             <label class="form-label" for="form2Example22">Repetir contraseña</label>
                                         </div>
                                         <div class="text-center pt-1 mb-5 pb-1">
