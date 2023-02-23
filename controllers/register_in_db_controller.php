@@ -1,4 +1,5 @@
 <?php
+
 require_once("../models/register_in_db_model.php");
 require_once("../db/conexion.php");
 
@@ -9,8 +10,16 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) 
     $email = $_POST['email'];
     $password = $_POST['password'];
     $re_password = $_POST['re_password'];
+
+    if($password == $re_password){
+        $register_in_db->register($name, $email, $password);
+    }else{
+        echo '<h1>Las contraseñas no coinciden</h1>';
+        header('Location: ../index.php');
+        
+    }
     
-    $register_in_db->register($name, $email, $password);
+    
 
 }else{
     echo 'no entra';

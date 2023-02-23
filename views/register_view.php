@@ -33,11 +33,11 @@
                                         <img src="../images/LOGO_250x250.png" style="width: 185px;" alt="logo">
                                         <h4 class="mt-1 mb-5 pb-1">Crear cuenta</h4>
                                     </div>
-                                    <form method="POST" action="./controllers/register_in_db_controller.php">
+                                    <form method="POST" action="register_in_db_controller.php">
                                         
                                         
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="form2Example11" name="name" class="form-control" placeholder="Nombre" />
+                                            <input type="name" id="form2Example11" name="name" class="form-control" placeholder="Nombre" />
                                             <label class="form-label" for="form2Example11">Nombre</label>
                                         </div>
                                         <div class="form-outline mb-4">

@@ -53,7 +53,7 @@
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">¿Aún no tienes una cuenta?</p>
-                                            <button type="button" id="registroBoton" href="./controllers/register_controller.php" class="btn btn-outline-primary">Registrarse</button>
+                                            <a type="button" id="registroBoton" href="controllers/register_controller.php" class="btn btn-outline-primary">Registrarse</a>
                                         </div>
 
                                     </form>

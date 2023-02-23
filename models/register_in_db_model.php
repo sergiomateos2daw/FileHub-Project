@@ -4,13 +4,13 @@ class register_in_db_model{
 
     function register($name, $email, $password) {
 
-        $password_encriptado = password_hash($password, CRYPT_BLOWFISH);
+        $password_encriptado = password_hash($password, PASSWORD_DEFAULT);
 
         $query = "INSERT INTO users VALUES (
             null,
-            $name,
-            $email,
-            $password_encriptado,
+            '$name',
+            '$email',
+            '$password_encriptado',
             'no-premium')";
 
         $this->db=Conectar::conexion();
@@ -19,7 +19,7 @@ class register_in_db_model{
         $stmt->execute();
 
     
-        include_once('./controllers/register_controller.php');
+        header('Location: ../index.php');
         exit();
         
     }
