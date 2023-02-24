@@ -21,7 +21,7 @@
 </head>
 <body>
     <section class="h-100 gradient-form" style="background-color: #eee;">
-        <div class="container py-6 h-100">
+        <div class="container py-3 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-6">
                     <div class="card rounded-3 text-black">
@@ -54,9 +54,8 @@
                                         </div>
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Registrarse</button>
-                                            
+                                            <a class="btn btn-secondary btn-block" href="../index.php">Volver</a>
                                         </div>
-
                                     </form>
 
                                 </div>

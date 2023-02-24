@@ -99,7 +99,7 @@ if(!isset($_SESSION['email'])) {
                           </h3>
                           <p class="post-description">' . $dato["description"] . '</p>
                           <span class="post-date"><i class="fa fa-file-o"></i>' . $dato["num_files"] . '</span>
-                          <a href="#" class="read-more">Acceder</a>
+                          <a href="./controllers/removeSpace_controller.php?space_id=' . $dato["id"] . '" class="read-more">Elimnar</a>
                       </div>
                   </div>';
                     }
@@ -109,6 +109,41 @@ if(!isset($_SESSION['email'])) {
             </div>
         </div>
     </div>
+    <button type="button" class="btn btn-flotante" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>
+    <!-------------------------- BOTON NUEVO ESPACIO --------------------------->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Espacio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="./controllers/createSpace_controller.php">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre del espacio:</label>
+            <input type="text" class="form-control" name="space_name" id="space_name" required>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Descripción:</label>
+            <input type="text" class="form-control" name="user_id" id="user_id" value="<?=$_SESSION['user_id']?>" required style="display: none;">
+            <input type="text" class="form-control" name="space_description" id="space_description" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" type="submit">Crear espacio</button>
+            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Registrarse</button>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    <!-------------------------------------------------------------------------->
+
     <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
 </body>
