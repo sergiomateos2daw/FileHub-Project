@@ -20,7 +20,6 @@ class createSpace_model{
 
         $stmt = $this->db->prepare($query);
         $stmt->execute();
-
     
         header('Location: ../index.php');
         exit();

@@ -17,8 +17,10 @@ class register_in_db_model{
 
         $stmt = $this->db->prepare($query);
         $stmt->execute();
-
-    
+        $path = "../Spaces/$email";
+        // if (!file_exists($path)) {
+        //     mkdir($path, 0777);
+        // }
         header('Location: ../index.php');
         exit();
         

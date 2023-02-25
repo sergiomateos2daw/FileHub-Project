@@ -15,5 +15,17 @@ class spaces_model{
         }
         return $this->spaces;
     }
+
+    public function delete_directory($dir){
+        if(!$dh = @opendir($dir)) return;
+        while (false !== ($current = readdir($dh))) {
+            if($current != '.' && $current != '..') {
+                if (!@unlink($dir.'/'.$current)) 
+                $this->delete_directory($dir.'/'.$current);
+            }       
+        }
+        closedir($dh);
+        @rmdir($dir);
+    }
 }
 ?>

@@ -99,7 +99,7 @@ if(!isset($_SESSION['email'])) {
                           </h3>
                           <p class="post-description">' . $dato["description"] . '</p>
                           <span class="post-date"><i class="fa fa-file-o"></i>' . $dato["num_files"] . '</span>
-                          <a href="./controllers/removeSpace_controller.php?space_id=' . $dato["id"] . '" class="read-more">Elimnar</a>
+                          <a href="./controllers/removeSpace_controller.php?space_id=' . $dato["id"] .'&user_id=' . $_SESSION['user_id'] .'" class="read-more">Elimnar</a>
                       </div>
                   </div>';
                     }
@@ -133,8 +133,7 @@ if(!isset($_SESSION['email'])) {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary" type="submit">Crear espacio</button>
-            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Registrarse</button>
+            <button class="btn btn-primary" type="submit">Crear espacio</button>
         </div>
         </form>
       </div>
@@ -143,7 +142,6 @@ if(!isset($_SESSION['email'])) {
   </div>
 </div>
     <!-------------------------------------------------------------------------->
-
     <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
 </body>
