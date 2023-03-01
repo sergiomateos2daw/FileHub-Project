@@ -193,3 +193,12 @@ body {
 	}
 } 
 /*###################################################################################*/
+@font-face {
+    font-family: Kameri105;
+    src: url(Kamerik105.ttf);
+}
+
+.title{ 
+    font-family: Kameri105;
+    /* text-align: center; */
+}

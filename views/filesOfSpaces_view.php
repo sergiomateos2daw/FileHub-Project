@@ -32,21 +32,6 @@ if(!isset($_SESSION['email'])) {
 
     <!------------------------------------------>
 </head>
-<script>
-    $(document).ready(function() {
-        $("#news-slider").owlCarousel({
-            items: 5,
-            itemsDesktop: [1199, 5],
-            itemsDesktopSmall: [980, 2],
-            itemsMobile: [600, 1],
-            navigation: true,
-            navigationText: ["", ""],
-            pagination: true,
-            autoPlay: false
-        });
-
-    });
-</script>
 
 <body>
 
@@ -87,38 +72,10 @@ if(!isset($_SESSION['email'])) {
     </nav>
     <!------------------------------- ESPACIOS ------------------------------>
     
-    <div class="container-fluid">
-        <div class="row-flex">
-            <div class="col-md-12">
-                <div id="news-slider" class="owl-carousel">
-                    <?php
-                    foreach ($datos as $dato) {
-                        echo '<div class="post-slide">
-                      <div class="post-img">
-                          <img src="./images/folder.png" alt="">
-                          <a href="controllers/filesOfSpaces_controller.php" class="over-layer"><i class="fa fa-sign-in"></i></a>
-                      </div>
-                      <div class="post-content">
-                          <h3 class="post-title">
-                              <a href="#">' . $dato["name"] . '</a>
-                          </h3>
-                          <p class="post-description">' . $dato["description"] . '</p>
-                          <span class="post-date"><i class="fa fa-file-o"></i>' . $dato["num_files"] . '</span>
-                          <button type="button" class="btn btn-danger read-more" data-toggle="modal" data-target="#exampleModalCenter">
-                            Eliminar
-                          </button>
-                          
-                      </div>
-                  </div>';
-                    }
-                    ?>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <button type="button" class="btn btn-flotante" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>
+    
     <!-------------------------- BOTON NUEVO ESPACIO --------------------------->
+    <button type="button" class="btn btn-flotante" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -149,28 +106,7 @@ if(!isset($_SESSION['email'])) {
     </div>
   </div>
 </div>
-    <!---------------------------- CONFIRMACION DE BORRADO ------------------------------>
-    <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Eliminar espacio</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <b><h5>¿Realmente deseas eliminar este espacio?</h5></b>
-        Una vez elimnado no podrás recuperar ninguno de los archivos que contenga.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <?php echo '<a href="./controllers/removeSpace_controller.php?space_id=' . $dato["id"] .'&user_id=' . $_SESSION['user_id'] .'" type="button" class="btn btn-danger">Eliminar espacio</a>'?>
-      </div>
-    </div>
-  </div>
-</div>
+    
     <!----------------------------------------------------------------------------------->
     <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
