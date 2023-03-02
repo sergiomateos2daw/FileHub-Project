@@ -1,8 +1,8 @@
 <?php
-if(!isset($_SESSION['email'])) {
-    require_once("controllers/login_controller.php");
+  if(!isset($_SESSION['email'])) {
+    header("Location: ../index.php");
     exit();
-}
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,14 +18,14 @@ if(!isset($_SESSION['email'])) {
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css'>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <!-- FAVICON PARA DIFERENTES DISPOSITIVOS -->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../images/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="./styles/spaces_styles.css">
+    <link rel="stylesheet" href="../styles/spaces_styles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -42,18 +42,18 @@ if(!isset($_SESSION['email'])) {
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <img src="./images/LOGO_250x250.png" height="70" width="70">
+            <img src="../images/LOGO_250x250.png" height="70" width="70">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li>
                     <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h1 class="title">Mi unidad</h1>
+                        <h1 class="title"> <a style="text-decoration: none; color: black" href="../controllers/spaces_controller.php">Mi unidad</a> > <?= $space_name ?></h1>
                     </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.php">Mi unidad</a>
+                        <a class="nav-link" href="../controllers/spaces_controller.php">Mi unidad</a>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,7 +63,7 @@ if(!isset($_SESSION['email'])) {
                             <button class="dropdown-item" disabled type="button"><?=$_SESSION['name']?></button>
                             <a class="dropdown-item" type="button">Modificar perfil</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" type="button" href="./controllers/logout_controller.php">Cerrar sesión</a>
+                            <a class="dropdown-item" type="button" href="../controllers/logout_controller.php">Cerrar sesión</a>
                         </div>
                     </li>
                 </ul>
@@ -74,7 +74,7 @@ if(!isset($_SESSION['email'])) {
     
     
     <!-------------------------- BOTON NUEVO ESPACIO --------------------------->
-    <button type="button" class="btn btn-flotante" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>
+    <button type="button" class="btn btn-flotante" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subir archivo</button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

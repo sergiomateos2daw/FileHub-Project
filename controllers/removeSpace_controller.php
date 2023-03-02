@@ -1,5 +1,10 @@
 <?php
     //Llamada al modelo
+    session_start();
+    if(!isset($_SESSION['email'])) {
+        header("Location: ../index.php");
+        exit();
+    }
     require_once("../models/removeSpace_model.php");
     require_once("../db/conexion.php");
 

@@ -1,8 +1,8 @@
 <?php
-if(!isset($_SESSION['email'])) {
-    require_once("controllers/login_controller.php");
+  if(!isset($_SESSION['email'])) {
+    header("Location: ../index.php");
     exit();
-}
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -96,7 +96,7 @@ if(!isset($_SESSION['email'])) {
                         echo '<div class="post-slide">
                       <div class="post-img">
                           <img src="./images/folder.png" alt="">
-                          <a href="controllers/filesOfSpaces_controller.php" class="over-layer"><i class="fa fa-sign-in"></i></a>
+                          <a href="controllers/filesOfSpaces_controller.php?space_name='. $dato["name"] .'" class="over-layer"><i class="fa fa-sign-in"></i></a>
                       </div>
                       <div class="post-content">
                           <h3 class="post-title">

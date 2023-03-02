@@ -1,4 +1,9 @@
 <?php
+
+    if(!isset($_SESSION['email'])) {
+        header("Location: ../index.php");
+        exit();
+    }
     //Llamada al modelo
     require_once("models/spaces_model.php");
     

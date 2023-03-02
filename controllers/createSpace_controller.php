@@ -1,5 +1,11 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['email'])) {
+        header("Location: ../index.php");
+        exit();
+    }
     //Llamada al modelo
+    
     require_once("../models/createSpace_model.php");
     require_once("../db/conexion.php");
 
