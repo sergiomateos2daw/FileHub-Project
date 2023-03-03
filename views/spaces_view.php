@@ -96,7 +96,7 @@
                         echo '<div class="post-slide">
                       <div class="post-img">
                           <img src="./images/folder.png" alt="">
-                          <a href="controllers/filesOfSpaces_controller.php?space_name='. $dato["name"] .'" class="over-layer"><i class="fa fa-sign-in"></i></a>
+                          <a href="controllers/filesOfSpaces_controller.php?space_name='. $dato["name"] .'&space_id='. $dato["id"] .'" class="over-layer"><i class="fa fa-sign-in"></i></a>
                       </div>
                       <div class="post-content">
                           <h3 class="post-title">
