@@ -78,7 +78,7 @@ if (!isset($_SESSION['email'])) {
 
       <!--------------------- CABECERA --------------------->
       <?php
-      mostrarCabecera($space_id, $space_name);
+      mostrarCabecera($space_id, $space_name, $user_id);
       ?>
       <!---------------------------------------------------->
       <div class="row px-2">
@@ -102,9 +102,8 @@ if (!isset($_SESSION['email'])) {
           </button>
         </div>
         <div class="modal-body">
-  
+          
         </div>
-
       </div>
     </div>
   </div>

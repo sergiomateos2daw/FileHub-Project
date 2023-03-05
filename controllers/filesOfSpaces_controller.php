@@ -12,21 +12,26 @@
     require_once("../db/conexion.php");
 
     $filesOfSpaces=new filesOfSpaces_model();
-    $num_files = $filesOfSpaces->get_num_files($space_id);
-    foreach ($num_files as $num) {
-        $num_files= $num["num_files"];
-    }
+    
 
-    function mostrarCabecera($space_id, $space_name){
-        $filesOfSpaces=new filesOfSpaces_model();
-        $num_files = $filesOfSpaces->get_num_files($space_id);
-        foreach ($num_files as $num) {
-            $num_files= $num["num_files"];
+    function mostrarCabecera($space_id, $space_name, $user_id){
+
+        $num_files2 = 0;
+        $path = "../Spaces/$user_id/$space_id";
+        if ($handler = opendir($path)) {
+            while (false !== ($file = readdir($handler))) {
+                if($file != '.' && $file != '..'){
+                    $num_files2 = $num_files2 + 1;
+                }
+            }
+            
+            closedir($handler);
         }
+
         echo '<div class="row py-5 cabecera">
         <div class="col-lg-12 mx-auto rounded bg-light">
           <h1 class="display-6">'.$space_name .' </h1>
-          <p class="lead">Contiene '.$num_files.' archivos.</p>
+          <p class="lead">Contiene '.$num_files2.' archivos.</p>
         </div>
       </div>';
     }
