@@ -90,23 +90,10 @@ if (!isset($_SESSION['email'])) {
   </div>
 
   <!-------------------------- BOTON NUEVO ESPACIO --------------------------->
-  <button type="button" class="btn btn-flotante" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subir archivo</button>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Subir archivo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          
-        </div>
-      </div>
-    </div>
-  </div>
+  <?php
+    echo '<a type="button" class="btn btn-flotante"  href="../controllers/uploadFiles_controller.php?space_name='. $space_name .'&space_id='. $space_id .'">Subir archivo</a>';
+  ?>
   <!----------------------------------------------------------------------------------->
   <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
