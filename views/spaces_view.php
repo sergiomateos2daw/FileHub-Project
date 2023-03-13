@@ -162,7 +162,7 @@
       </div>
       <div class="modal-body">
         <b><h5>¿Realmente deseas eliminar este espacio?</h5></b>
-        Una vez elimnado no podrás recuperar ninguno de los archivos que contenga.
+        Una vez eliminado no podrás recuperar ninguno de los archivos que contenga.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
