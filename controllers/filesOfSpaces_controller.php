@@ -1,6 +1,13 @@
 <?php
     
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+    if(!isset($_SESSION['email'])) {
+        header("Location: ../index.php");
+        exit();
+    }
     //Llamada al modelo
     $space_name = $_GET['space_name'];
     $space_id = $_GET['space_id'];
@@ -38,7 +45,7 @@
 
     $GLOBALS["num_files"] = 0;
 
-    function mostarFichero($user_id, $space_id){
+    function mostarFichero($user_id, $space_id, $space_name){
         $GLOBALS["num_files"] = 0;
         $path = "../Spaces/$user_id/$space_id";
         if ($handler = opendir($path)) {
@@ -63,6 +70,9 @@
                             break;
                         case 'avi':
                             $file_info['image'] = "../images/icon-files/avi.png";
+                            break;
+                        case 'mp4':
+                            $file_info['image'] = "../images/icon-files/mp4.png";
                             break;
                         case 'bmp':
                             $file_info['image'] = "../images/icon-files/bmp.png";
@@ -176,7 +186,7 @@
                                     <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2">
                                         <button class="badge badge-success px-3 rounded-pill font-weight-normal botonVer" onclick="verImagen("")"><i class="fa-solid fa-magnifying-glass"></i></button>
                                         <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="../controllers/download_controller.php?space_id='.$space_id.'&file='.$file.'"><i class="fa-solid fa-download"></i></a>
-                                        <button class="badge badge-danger px-3 rounded-pill font-weight-normal"><i class="fa-solid fa-trash"></i></button>
+                                        <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="../controllers/removeFile_controller.php?space_id='.$space_id.'&file='.$file.'&space_name='.$space_name.'"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +200,7 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2">
                                         <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="../controllers/download_controller.php?space_id='.$space_id.'&file='.$file.'"><i class="fa-solid fa-download"></i></a>
-                                        <button class="badge badge-danger px-3 rounded-pill font-weight-normal"><i class="fa-solid fa-trash"></i></button>
+                                        <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="../controllers/removeFile_controller.php?space_id='.$space_id.'&file='.$file.'&space_name='.$space_name.'"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
                             </div>

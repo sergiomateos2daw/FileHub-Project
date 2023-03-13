@@ -43,11 +43,11 @@ if (!isset($_SESSION['email'])) {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <img src="../images/LOGO_250x250.png" height="70" width="70">
+      <a href="../controllers/spaces_controller.php"><img src="../images/LOGO_250x250.png" height="70" width="70"></a>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li>
           <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="title"> <a style="text-decoration: none; " href="../controllers/spaces_controller.php">Mi unidad</a> > <?= $space_name ?></h1>
+            <h1 class="title">Mi unidad > <a style="text-decoration: none; " href="../controllers/filesOfSpaces_controller.php?space_name=<?= $space_name ?>&space_id=<?= $space_id ?>"><?= $space_name ?></a></h1>
           </div>
         </li>
       </ul>
@@ -72,9 +72,67 @@ if (!isset($_SESSION['email'])) {
     </div>
   </nav>
   <!------------------------------- BODY ------------------------------>
-  
-  <!------------------------------------------------------------------->
+  <form class="upload-form" action="../controllers/uploadFilesFinal_controller.php?space_id=<?= $space_id ?>&space_name=<?= $space_name ?>" method="post" enctype="multipart/form-data">
 
+    <h1>Subir archivos</h1>
+
+    <label for="files"><i class="fa-solid fa-folder-open fa-8x"></i>Selecciona los archivos que quieres subir...</label>
+    <input id="files" type="file" name="files[]" multiple>
+
+    <div class="progress"></div>
+
+    <button type="submit">Subir</button>
+
+    <div class="result"></div>
+
+  </form>
+  <!------------------------------------------------------------------->
+  <script>
+    // Declare global variables for easy access 
+    const uploadForm = document.querySelector('.upload-form');
+    const filesInput = uploadForm.querySelector('#files');
+    // Attach onchange event handler to the files input element
+    filesInput.onchange = () => {
+      // Append all the file names to the label
+      uploadForm.querySelector('label').innerHTML = '';
+      for (let i = 0; i < filesInput.files.length; i++) {
+        uploadForm.querySelector('label').innerHTML += '<span><i class="fa-solid fa-file"></i>' + filesInput.files[i].name + '</span>';
+      }
+    };
+    // Attach submit event handler to form
+    uploadForm.onsubmit = event => {
+      event.preventDefault();
+      // Make sure files are selected
+      if (!filesInput.files.length) {
+        uploadForm.querySelector('.result').innerHTML = 'Selecciona al menos un archivo';
+      } else {
+        // Create the form object
+        let uploadFormDate = new FormData(uploadForm);
+        // Initiate the AJAX request
+        let request = new XMLHttpRequest();
+        // Ensure the request method is POST
+        request.open('POST', uploadForm.action);
+        // Attach the progress event handler to the AJAX request
+        request.upload.addEventListener('progress', event => {
+          // Add the current progress to the button
+          uploadForm.querySelector('button').innerHTML = 'Subiendo... ' + '(' + ((event.loaded / event.total) * 100).toFixed(2) + '%)';
+          // Update the progress bar
+          uploadForm.querySelector('.progress').style.background = 'linear-gradient(to right, #25b350, #25b350 ' + Math.round((event.loaded / event.total) * 100) + '%, #e6e8ec ' + Math.round((event.loaded / event.total) * 100) + '%)';
+          // Disable the submit button
+          uploadForm.querySelector('button').disabled = true;
+        });
+        // The following code will execute when the request is complete
+        request.onreadystatechange = () => {
+          if (request.readyState == 4 && request.status == 200) {
+            // Output the response message
+            uploadForm.querySelector('.result').innerHTML = request.responseText;
+          }
+        };
+        // Execute request
+        request.send(uploadFormDate);
+      }
+    };
+  </script>
 
 </body>
 

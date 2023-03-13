@@ -57,7 +57,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <img src="./images/LOGO_250x250.png" height="70" width="70">
+            <a href="./controllers/spaces_controller.php"><img src="./images/LOGO_250x250.png" height="70" width="70"></a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li>
                     <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
