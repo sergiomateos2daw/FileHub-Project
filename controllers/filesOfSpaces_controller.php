@@ -21,6 +21,40 @@
     $filesOfSpaces=new filesOfSpaces_model();
     
 
+    
+    
+    function calcularPesoSpace($dir)
+    {
+        clearstatcache();
+        $cont = 0;
+        if (is_dir($dir)) {
+            if ($gd = opendir($dir)) {
+                while (($archivo = readdir($gd)) !== false) {
+                    if ($archivo != "." && $archivo != "..") {
+                        if (is_dir($archivo)) {
+                            $cont += calcularPesoSpace($dir . "/" . $archivo);
+                        } else {
+                            $cont += sprintf("%u", filesize($dir . "/" . $archivo));
+                        }
+                    }
+                }
+                closedir($gd);
+            }
+        }
+        return $cont;
+    }
+
+    function formatBytes($bytes) {
+        if ($bytes > 0) {
+            $i = floor(log($bytes) / log(1024));
+            $sizes = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+            return sprintf('%.02F', round($bytes / pow(1024, $i),1)) * 1 . ' ' . @$sizes[$i];
+        } else {
+            return 0;
+        }
+    }
+    
+
     function mostrarCabecera($space_id, $space_name, $user_id){
 
         $num_files2 = 0;
@@ -35,11 +69,35 @@
             closedir($handler);
         }
 
-        echo '<div class="row py-5 cabecera">
-        <div class="col-lg-12 mx-auto rounded bg-light">
-          <h1 class="display-6">'.$space_name .' </h1>
-          <p class="lead">Contiene '.$num_files2.' archivos.</p>
-        </div>
+        $espacio_usado = calcularPesoSpace($path);
+
+        function obtenerPorcentaje($cantidad, $total) {
+            $porcentaje = ((float)$cantidad * 100) / $total; // Regla de tres
+            $porcentaje = round($porcentaje, 0);  // Quitar los decimales
+            return $porcentaje;
+        }
+    
+        $porcentaje_usado = obtenerPorcentaje($espacio_usado, 5368709120);
+
+        echo '<div class="row py-5">
+        <div class="col-lg-12  bg-white rounded shadow-sm">
+          <h1 class="display-6">'.$space_name .' </h1>';
+        if($espacio_usado>0){
+            echo '
+            <p class="lead">Contiene '.$num_files2.' archivos.</p>
+            <p class="lead">Espacio usado <b>'.formatBytes($espacio_usado).'</b> de <b>5 GB</b>.</p>';
+            
+            if($porcentaje_usado>=80){
+                echo '<div class="progress-bar rounded bg-danger" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
+            }elseif($porcentaje_usado>=50){
+                echo '<div class="progress-bar rounded bg-warning text-dark" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
+            }else{
+                echo '<div class="progress-bar rounded" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
+            }
+        }else{
+            echo 'Este espacio está vacío.';
+        }
+      echo '</div>
       </div>';
     }
 

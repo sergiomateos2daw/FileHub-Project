@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
     <title>Register - FileHub</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- FAVICON PARA DIFERENTES DISPOSITIVOS -->
@@ -28,14 +26,11 @@
                         <div class="row g-0">
                             <div class="col-lg-12">
                                 <div class="card-body p-md-5 mx-md-4">
-
                                     <div class="text-center">
                                         <img src="../images/LOGO_250x250.png" style="width: 185px;" alt="logo">
                                         <h4 class="mt-1 mb-5 pb-1">Crear cuenta</h4>
                                     </div>
                                     <form method="POST" action="register_in_db_controller.php">
-                                        
-                                        
                                         <div class="form-outline mb-4">
                                             <input type="name" id="form2Example11" name="name" class="form-control" placeholder="Nombre" />
                                             <label class="form-label" for="form2Example11">Nombre</label>
@@ -57,7 +52,6 @@
                                             <a class="btn btn-secondary btn-block" href="../index.php">Volver</a>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                             
@@ -68,5 +62,4 @@
         </div>
     </section>
 </body>
-
 </html>

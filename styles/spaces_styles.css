@@ -168,7 +168,7 @@ body {
 	color: #ffffff; /* Color del texto */
 	border-radius: 30px; /* Borde del boton */
 	letter-spacing: 1px; /* Espacio entre letras */
-	background-color: #2196F3; /* Color de fondo */
+	background-color: #0D6EFD; /* Color de fondo */
 	padding: 18px 30px; /* Relleno del boton */
 	position: fixed;
 	bottom: 40px;
@@ -178,7 +178,7 @@ body {
 	z-index: 99;
 }
 .btn-flotante:hover {
-	background-color: #59C5F9; /* Color de fondo al pasar el cursor */
+	background-color: #6da2f3; /* Color de fondo al pasar el cursor */
 	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 	transform: translateY(-7px);
     text-decoration: none;
@@ -191,7 +191,24 @@ body {
 		bottom: 20px;
 		right: 20px;
 	}
-} 
+}
+
+.btn-flotante:disabled {
+	font-size: 16px; /* Cambiar el tamaño de la tipografia */
+	text-transform: uppercase; /* Texto en mayusculas */
+	font-weight: bold; /* Fuente en negrita o bold */
+	color: #ffffff; /* Color del texto */
+	border-radius: 30px; /* Borde del boton */
+	letter-spacing: 1px; /* Espacio entre letras */
+	background-color: #959799; /* Color de fondo */
+	padding: 18px 30px; /* Relleno del boton */
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	transition: all 300ms ease 0ms;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	z-index: 99;
+}
 /*###################################################################################*/
 @font-face {
     font-family: Kameri105;
@@ -200,7 +217,6 @@ body {
 
 .title{ 
     font-family: Kameri105;
-    /* text-align: center; */
 }
 
 *{
@@ -235,9 +251,6 @@ body {
         font-size:1.5em;
     }
 
-.cabecera{
-    font-family: Kameri105;
-}
 
 /* //////////////////////////////////////////////////////// */
 .dropzone {

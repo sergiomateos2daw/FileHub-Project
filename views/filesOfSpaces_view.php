@@ -6,7 +6,6 @@ if (!isset($_SESSION['email'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <title><?= $space_name ?> - FileHub</title>
@@ -72,11 +71,10 @@ if (!isset($_SESSION['email'])) {
     </div>
   </nav>
   <!------------------------------- ESPACIOS ------------------------------>
-
   <div class="container-fluid">
     <div class="px-lg-5">
-
       <!--------------------- CABECERA --------------------->
+      
       <?php
       mostrarCabecera($space_id, $space_name, $user_id);
       ?>
@@ -88,21 +86,20 @@ if (!isset($_SESSION['email'])) {
       </div>
     </div>
   </div>
-
   <!-------------------------- BOTON NUEVO ESPACIO --------------------------->
-
   <?php
-    echo '<a type="button" class="btn btn-flotante"  href="../controllers/uploadFiles_controller.php?space_name='. $space_name .'&space_id='. $space_id .'">Subir archivo</a>';
+    if($porcentaje_usado >= 100){
+      echo '<button type="button" class="btn btn-flotante" disabled data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>';
+      echo '<a type="button" class="btn btn-flotante" disabled">Subir archivo</a>';
+    }else{
+      echo '<a type="button" class="btn btn-flotante"  href="../controllers/uploadFiles_controller.php?space_name='. $space_name .'&space_id='. $space_id .'">Subir archivo</a>';
+    }
   ?>
   <!----------------------------------------------------------------------------------->
   <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
-
 </body>
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script>
   $(document).ready(function() {
@@ -113,7 +110,6 @@ if (!isset($_SESSION['email'])) {
     });
   });
 </script>
-
 <div class="modal" tabindex="-1" role="dialog" id="imageModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -121,5 +117,4 @@ if (!isset($_SESSION['email'])) {
     </div>
   </div>
 </div>
-
 </html>
