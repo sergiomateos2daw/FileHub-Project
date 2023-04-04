@@ -20,7 +20,10 @@
 
     $filesOfSpaces=new filesOfSpaces_model();
     
+    $path = "../Spaces/$user_id/$space_id";
+    $espacio_usado = calcularPesoSpace($path);
 
+    $porcentaje_usado = obtenerPorcentaje($espacio_usado, 5368709120);
     
     
     function calcularPesoSpace($dir)
@@ -54,6 +57,11 @@
         }
     }
     
+    function obtenerPorcentaje($cantidad, $total) {
+        $porcentaje = ((float)$cantidad * 100) / $total; // Regla de tres
+        $porcentaje = round($porcentaje, 0);  // Quitar los decimales
+        return $porcentaje;
+    }
 
     function mostrarCabecera($space_id, $space_name, $user_id){
 
@@ -71,11 +79,7 @@
 
         $espacio_usado = calcularPesoSpace($path);
 
-        function obtenerPorcentaje($cantidad, $total) {
-            $porcentaje = ((float)$cantidad * 100) / $total; // Regla de tres
-            $porcentaje = round($porcentaje, 0);  // Quitar los decimales
-            return $porcentaje;
-        }
+        
     
         $porcentaje_usado = obtenerPorcentaje($espacio_usado, 5368709120);
 
@@ -95,7 +99,7 @@
                 echo '<div class="progress-bar rounded" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
             }
         }else{
-            echo 'Este espacio está vacío.';
+            echo 'Este espacio está vacío.<br><br>';
         }
       echo '</div>
       </div>';
