@@ -6,6 +6,7 @@ if (!isset($_SESSION['email'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <title>Mi unidad - FileHub</title>
@@ -47,6 +48,7 @@ if (!isset($_SESSION['email'])) {
     });
   });
 </script>
+
 <body>
   <!----------------------- NAVBAR ---------------------->
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -64,13 +66,31 @@ if (!isset($_SESSION['email'])) {
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li> <!-- ESTE BOTON MUESTRA EL ESPACIO DISPONIBLE -->
-          <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <button class="btn btn-primary title" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Espacios usados <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-              </svg></button>
-          </div>
-        </li>
+        <?php
+          if ($contador_espacios >= 8) {
+            echo '<li> <!-- ESTE BOTON MUESTRA EL ESPACIO DISPONIBLE -->
+            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <button class="btn btn-primary position-relative title" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Espacios usados <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>
+                <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger">
+                  !
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </button>
+            </div>
+          </li>';
+          } else {
+            echo '<li> <!-- ESTE BOTON MUESTRA EL ESPACIO DISPONIBLE -->
+            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <button class="btn btn-primary title" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Espacios usados <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg></button>
+            </div>
+          </li>';
+          }
+        ?>
+          
           <li class="nav-item">
             <a class="nav-link" href="./index.php">Mi unidad</a>
           </li>
@@ -96,20 +116,20 @@ if (!isset($_SESSION['email'])) {
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body small">
-    <div class="progress">
-    <?php
-    if($porcentaje_usado>=80){
-      echo '<div class="progress-bar bg-danger" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100"><b>'.$porcentaje_usado.'%</b></div>';
-    }elseif($porcentaje_usado>=50){
-      echo '<div class="progress-bar bg-warning text-dark" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100"><b>'.$porcentaje_usado.'%</b></div>';
-    }else{
-      echo '<div class="progress-bar " role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100"><b>'.$porcentaje_usado.'%</b></div>';
-    }
-    ?>
-  
-</div>
-<br>
-  <p class="title">Has usado <?php echo $contador_espacios ?> de 8 espacios</p>
+      <div class="progress">
+        <?php
+        if ($porcentaje_usado >= 80) {
+          echo '<div class="progress-bar bg-danger" role="progressbar" style="width: ' . $porcentaje_usado . '%;" aria-valuenow="' . $porcentaje_usado . '" aria-valuemin="0" aria-valuemax="100"><b>' . $porcentaje_usado . '%</b></div>';
+        } elseif ($porcentaje_usado >= 50) {
+          echo '<div class="progress-bar bg-warning text-dark" role="progressbar" style="width: ' . $porcentaje_usado . '%;" aria-valuenow="' . $porcentaje_usado . '" aria-valuemin="0" aria-valuemax="100"><b>' . $porcentaje_usado . '%</b></div>';
+        } else {
+          echo '<div class="progress-bar " role="progressbar" style="width: ' . $porcentaje_usado . '%;" aria-valuenow="' . $porcentaje_usado . '" aria-valuemin="0" aria-valuemax="100"><b>' . $porcentaje_usado . '%</b></div>';
+        }
+        ?>
+
+      </div>
+      <br>
+      <p class="title">Has usado <?php echo $contador_espacios ?> de 8 espacios</p>
     </div>
   </div>
   <!------------------------------- ESPACIOS ------------------------------>
@@ -127,7 +147,7 @@ if (!isset($_SESSION['email'])) {
                       </div>
                       <div class="post-content">
                           <h3 class="post-title">
-                              <a href="#">' . $dato["name"] . '</a>
+                              <div class="labelContainer"><a href="controllers/filesOfSpaces_controller.php?space_name=' . $dato["name"] . '&space_id=' . $dato["id"] . '">' . $dato["name"] . '</a></div>
                           </h3>
                           <p class="post-description">' . $dato["description"] . '</p>
                           <span class="post-date"><i class="fa fa-file-o"></i>' . $dato["num_files"] . '</span>
@@ -144,11 +164,11 @@ if (!isset($_SESSION['email'])) {
     </div>
   </div>
   <?php
-    if($contador_espacios >= 8){
-      echo '<button type="button" class="btn btn-flotante" disabled data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>';
-    }else{
-      echo '<button type="button" class="btn btn-flotante" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>';
-    }
+  if ($contador_espacios >= 8) {
+    echo '<button type="button" class="btn btn-flotante" disabled data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>';
+  } else {
+    echo '<button type="button" class="btn btn-flotante" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>';
+  }
   ?>
   <!-------------------------- BOTON NUEVO ESPACIO --------------------------->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

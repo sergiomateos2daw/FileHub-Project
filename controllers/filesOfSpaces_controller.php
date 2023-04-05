@@ -239,30 +239,30 @@
                     }
                     $ruta = "../Spaces/$user_id/$space_id/$file";
                     if($file_info['extension']=='png' || $file_info['extension']=='jpg' || $file_info['extension']=='webp' || $file_info['extension']=='bmp' || $file_info['extension']=='gif' || $file_info['extension']=='tiff' ||$file_info['extension']=='svg'){
-                        echo '<div class="col-xl-2 col-lg-4 col-md-6 mb-4">
-                                <div class="bg-white rounded shadow-sm"><img src="'.$file_info['image'].'" src2="'.$ruta.'" alt="" class="img-fluid card-img-top">
+                    echo '<div class="col-xl-2 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="' . $file_info['image'] . '" src2="' . $ruta . '" alt="" class="img-fluid card-img-top">
                                     <div class="p-4">
-                                        <h5> <p  class="text-dark">'.$file_info['filename'].'</p></h5>
-                                        <p class="small text-muted mb-0">Formato: '.$file_info['extension'].'</p>
+                                        <div class="labelContainer"><span>' . $file_info['filename'] . '</span></div>
+                                        <p class="small text-muted mb-0">Formato: ' . $file_info['extension'] . '</p>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2">
                                         <button class="badge badge-success px-3 rounded-pill font-weight-normal botonVer" onclick="verImagen("")"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                        <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="../controllers/download_controller.php?space_id='.$space_id.'&file='.$file.'"><i class="fa-solid fa-download"></i></a>
-                                        <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="../controllers/removeFile_controller.php?space_id='.$space_id.'&file='.$file.'&space_name='.$space_name.'"><i class="fa-solid fa-trash"></i></a>
+                                        <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="../controllers/download_controller.php?space_id=' . $space_id . '&file=' . $file . '"><i class="fa-solid fa-download"></i></a>
+                                        <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="../controllers/removeFile_controller.php?space_id=' . $space_id . '&file=' . $file . '&space_name=' . $space_name . '"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
                             </div>
                             ';
                     }else{
-                        echo '<div class="col-xl-2 col-lg-4 col-md-6 mb-4">
-                                <div class="bg-white rounded shadow-sm"><img src="'.$file_info['image'].'" src2="'.$ruta.'" alt="" class="img-fluid card-img-top">
+                    echo '<div class="col-xl-2 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="' . $file_info['image'] . '" src2="' . $ruta . '" alt="" class="img-fluid card-img-top">
                                     <div class="p-4">
-                                        <h5> <p  class="text-dark">'.$file_info['filename'].'</p></h5>
-                                        <p class="small text-muted mb-0">Formato: '.$file_info['extension'].'</p>
+                                        <div class="labelContainer"><span>' . $file_info['filename'] . '</span></div>
+                                        <p class="small text-muted mb-0">Formato: ' . $file_info['extension'] . '</p>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2">
-                                        <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="../controllers/download_controller.php?space_id='.$space_id.'&file='.$file.'"><i class="fa-solid fa-download"></i></a>
-                                        <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="../controllers/removeFile_controller.php?space_id='.$space_id.'&file='.$file.'&space_name='.$space_name.'"><i class="fa-solid fa-trash"></i></a>
+                                        <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="../controllers/download_controller.php?space_id=' . $space_id . '&file=' . $file . '"><i class="fa-solid fa-download"></i></a>
+                                        <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="../controllers/removeFile_controller.php?space_id=' . $space_id . '&file=' . $file . '&space_name=' . $space_name . '"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
                             </div>

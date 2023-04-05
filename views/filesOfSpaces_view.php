@@ -6,6 +6,7 @@ if (!isset($_SESSION['email'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <title><?= $space_name ?> - FileHub</title>
@@ -74,11 +75,10 @@ if (!isset($_SESSION['email'])) {
   <div class="container-fluid">
     <div class="px-lg-5">
       <!--------------------- CABECERA --------------------->
-      
       <?php
       mostrarCabecera($space_id, $space_name, $user_id);
       ?>
-      <!---------------------------------------------------->
+      <!------------------ FICHEROS -------------------->
       <div class="row px-2">
         <?php
         mostarFichero($user_id, $space_id, $space_name)
@@ -86,14 +86,14 @@ if (!isset($_SESSION['email'])) {
       </div>
     </div>
   </div>
-  <!-------------------------- BOTON NUEVO ESPACIO --------------------------->
+  <!-------------------------- BOTON SUBIR FICHERO --------------------------->
   <?php
-    if($porcentaje_usado >= 100){
-      echo '<button type="button" class="btn btn-flotante" disabled data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>';
-      echo '<a type="button" class="btn btn-flotante" disabled">Subir archivo</a>';
-    }else{
-      echo '<a type="button" class="btn btn-flotante"  href="../controllers/uploadFiles_controller.php?space_name='. $space_name .'&space_id='. $space_id .'">Subir archivo</a>';
-    }
+  if ($porcentaje_usado >= 100) {
+    echo '<button type="button" class="btn btn-flotante" disabled data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subir archivo</button>';
+    echo '<a type="button" class="btn btn-flotante" disabled">Subir archivo</a>';
+  } else {
+    echo '<a type="button" class="btn btn-flotante"  href="../controllers/uploadFiles_controller.php?space_name=' . $space_name . '&space_id=' . $space_id . '">Subir archivo</a>';
+  }
   ?>
   <!----------------------------------------------------------------------------------->
   <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
@@ -117,4 +117,5 @@ if (!isset($_SESSION['email'])) {
     </div>
   </div>
 </div>
+
 </html>

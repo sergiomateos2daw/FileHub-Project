@@ -364,3 +364,29 @@ body {
   .upload-form .result {
     padding-top: 15px;
   }
+
+  .labelContainer {
+    height: 30px;
+    display: flex;
+    width: auto;
+    overflow: hidden;
+    position: relative;
+    padding : 5px;
+  }
+  
+  .labelContainer span {
+    height: auto;
+    width: auto;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    transform: translateX(0);
+    transition: 2s;
+  }
+  
+  .labelContainer:first-of-type:hover span {
+    width: auto;
+    transform: translateX(calc(100px - 100%));
+  }
