@@ -15,14 +15,10 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) 
         $register_in_db->register($name, $email, $password);
     }else{
         echo '<h1>Las contraseñas no coinciden</h1>';
-        header('Location: ../index.php');
-        
+        header('Location: ../index.php');   
     }
-    
-    
-
 }else{
-    echo 'no entra';
+    echo '<h1>Debes introducir todos los datos.</h1>';
 }
 
 ?>

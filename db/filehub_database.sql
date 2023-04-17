@@ -34,6 +34,18 @@ CREATE TABLE spaces (
     FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
+-- Creación de la tabla "shared_files" que contedrá información de los ficheros compartidos por los usuarios
+
+DROP TABLE IF EXISTS shared_files;
+CREATE TABLE shared_files (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_user INT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    FOREIGN KEY (id_user) REFERENCES users(id)
+);
+
 -- Insertar registros para pruebas
 INSERT INTO spaces (id_user, name, description, num_files) VALUES
 (1, 'Vacaciones en la playa', 'Fotos de mis vacaciones en la playa', 20),

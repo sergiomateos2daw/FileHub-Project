@@ -92,11 +92,11 @@
             <p class="lead">Espacio usado <b>'.formatBytes($espacio_usado).'</b> de <b>5 GB</b>.</p>';
             
             if($porcentaje_usado>=80){
-                echo '<div class="progress-bar rounded bg-danger" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
+                echo '<div class="text-dark progress-bar rounded bg-danger" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
             }elseif($porcentaje_usado>=50){
-                echo '<div class="progress-bar rounded bg-warning text-dark" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
+                echo '<div class="text-dark progress-bar rounded bg-warning text-dark" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
             }else{
-                echo '<div class="progress-bar rounded" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
+                echo '<div class="text-dark progress-bar rounded" role="progressbar" style="width: '.$porcentaje_usado.'%;" aria-valuenow="'.$porcentaje_usado.'" aria-valuemin="0" aria-valuemax="100">'.$porcentaje_usado.'%</div><br>';
             }
         }else{
             echo 'Este espacio está vacío.<br><br>';
@@ -245,9 +245,10 @@
                                         <div class="labelContainer"><span>' . $file_info['filename'] . '</span></div>
                                         <p class="small text-muted mb-0">Formato: ' . $file_info['extension'] . '</p>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2">
+                                    <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-2 py-2">
                                         <button class="badge badge-success px-3 rounded-pill font-weight-normal botonVer" onclick="verImagen("")"><i class="fa-solid fa-magnifying-glass"></i></button>
                                         <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="../controllers/download_controller.php?space_id=' . $space_id . '&file=' . $file . '"><i class="fa-solid fa-download"></i></a>
+                                        <a class="badge badge-warning px-3 rounded-pill font-weight-normal" href="../controllers/createSharedFile_controller.php?space_name='.$space_name.'&space_id=' . $space_id . '&file=' . $file . '"><i class="fa-solid fa-share-alt"></i></a>
                                         <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="../controllers/removeFile_controller.php?space_id=' . $space_id . '&file=' . $file . '&space_name=' . $space_name . '"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
@@ -262,6 +263,7 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2">
                                         <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="../controllers/download_controller.php?space_id=' . $space_id . '&file=' . $file . '"><i class="fa-solid fa-download"></i></a>
+                                        <a class="badge badge-warning px-3 rounded-pill font-weight-normal" href="../controllers/createSharedFile_controller.php?space_name='.$space_name.'&space_id=' . $space_id . '&file=' . $file . '"><i class="fa-solid fa-share-alt"></i></a>
                                         <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="../controllers/removeFile_controller.php?space_id=' . $space_id . '&file=' . $file . '&space_name=' . $space_name . '"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
