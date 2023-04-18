@@ -46,6 +46,13 @@ CREATE TABLE shared_files (
     FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
+DROP TABLE IF EXISTS recover_pass;
+CREATE TABLE recover_pass (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL,
+    token VARCHAR(255) NOT NULL
+);
+
 -- Insertar registros para pruebas
 INSERT INTO spaces (id_user, name, description, num_files) VALUES
 (1, 'Vacaciones en la playa', 'Fotos de mis vacaciones en la playa', 20),

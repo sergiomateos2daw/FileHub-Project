@@ -27,22 +27,22 @@
                             <div class="col-lg-6">
                                 <div class="card-body p-md-5 mx-md-4">
                                     <div class="text-center">
-                                        <img src="./images/LOGO_250x250.png" style="width: 185px;" alt="logo">
+                                        <a href="index.php"><img src="./images/LOGO_250x250.png" style="width: 185px;" alt="logo"></a>
                                         <h4 class="mt-1 mb-5 pb-1">Inicia sesión</h4>
                                     </div>
                                     <form method="POST" action="./controllers/sessionStart_controller.php">
                                         <p>Por favor, introduce tus credenciales</p>
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="form2Example11" name="email" class="form-control" placeholder="Dirección de email" />
+                                            <input type="email" id="form2Example11" name="email" class="form-control" placeholder="Dirección de email" required/>
                                             <label class="form-label" for="form2Example11">Username</label>
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example22" name="password" class="form-control" placeholder="Contraseña" />
+                                            <input type="password" id="form2Example22" name="password" class="form-control" placeholder="Contraseña" required/>
                                             <label class="form-label" for="form2Example22">Password</label>
                                         </div>
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Entrar</button>
-                                            <a class="text-muted" href="#!">¿Has olvidado tu contraseña?</a>
+                                            <a type="button" id="registroBoton" href="controllers/recoverPassword_controller.php" class="text-muted">¿Has olvidado tu contraseña?</a>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">¿Aún no tienes una cuenta?</p>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                    <h4 class="mb-4">¿Qúe es FileHub?</h4>
+                                    <h4 class="mb-4">¿Qué es FileHub?</h4>
                                     <p class="small mb-0">FileHub es un servicio de almacenamiento en la nube que permite a los usuarios guardar archivos en línea. Los archivos pueden ser accedidos desde cualquier dispositivo conectado a Internet. Todos los usuarios constan de 20GB de almacenamiento gratuito.</p>
                                 </div>
                             </div>

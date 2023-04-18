@@ -14,8 +14,10 @@
     $space_id = $_GET['space_id'];
     $file = $_GET['file'];
 
-    $codigo = bin2hex(random_bytes(14));
-    $codigo = str_replace(' ', '', $file) . '_' . $codigo;
+    $codigo = bin2hex(random_bytes(10));
+    $nombre = str_replace(' ', '', $file);
+    $nombre = substr($nombre, 0, 15);
+    $codigo = $nombre . '_' . $codigo;
     $codigo = preg_replace('([^A-Za-z0-9])', '', $codigo);
     
     $url_created = "https://localhost/filehub/controllers/sharedFile_controller.php?codigo=$codigo";
