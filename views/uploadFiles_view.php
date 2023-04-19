@@ -62,7 +62,7 @@ if (!isset($_SESSION['email'])) {
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <button class="dropdown-item" disabled type="button"><?= $_SESSION['name'] ?></button>
-              <a class="dropdown-item" type="button">Modificar perfil</a>
+              <a class="dropdown-item" type="button" href="../controllers/profile_controller.php">Administrar perfil</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" type="button" href="../controllers/logout_controller.php">Cerrar sesión</a>
             </div>

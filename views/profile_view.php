@@ -9,7 +9,7 @@ if (!isset($_SESSION['email'])) {
 
 <head>
   <meta charset="UTF-8" />
-  <title><?= $space_name ?> - FileHub</title>
+  <title>Administrar perfil - FileHub</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -47,7 +47,7 @@ if (!isset($_SESSION['email'])) {
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li>
           <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="title"> <a style="text-decoration: none; " href="../controllers/spaces_controller.php">Mi unidad</a> > <?= $space_name ?></h1>
+            <h1 class="title">Administrar perfil</h1>
           </div>
         </li>
       </ul>
@@ -62,7 +62,7 @@ if (!isset($_SESSION['email'])) {
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <button class="dropdown-item" disabled type="button"><?= $_SESSION['name'] ?></button>
-              <a class="dropdown-item" type="button" href="../controllers/profile_controller.php">Administrar perfil</a>
+              <a class="dropdown-item" type="button"><b>Administrar perfil</b></a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" type="button" href="../controllers/logout_controller.php">Cerrar sesión</a>
             </div>
@@ -71,51 +71,27 @@ if (!isset($_SESSION['email'])) {
       </form>
     </div>
   </nav>
-  <!------------------------------- ESPACIOS ------------------------------>
+  <!------------------------------- BODY ------------------------------>
   <div class="container-fluid">
     <div class="px-lg-5">
-      <!--------------------- CABECERA --------------------->
-      <?php
-      mostrarCabecera($space_id, $space_name, $user_id);
-      ?>
-      <!------------------ FICHEROS -------------------->
-      <div class="row px-2">
-        <?php
-        mostarFichero($user_id, $space_id, $space_name)
-        ?>
+      <div class="row py-5">
+        <div class="col-lg-12 bg-white rounded shadow-sm">
+          <h1>Modifica los datos de tu cuenta</h1><br>
+          <form method="POST" action="../controllers/insertNewPass_controller.php">
+            <div class="form-outline mb-4">
+              <label class="form-label" for="name">Nombre</label>
+                <input type="text" id="form2Example11" name="name" class="form-control" value="<?= $_SESSION['name'] ?>" required/>
+            </div>
+            <div class="text-center pt-1 mb-5 pb-1">
+                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Actualizar</button>
+            </div>
+          </form>
+          <p></p>
+        </div>
       </div>
     </div>
   </div>
-  <!-------------------------- BOTON SUBIR FICHERO --------------------------->
-  <?php
-  if ($porcentaje_usado >= 100) {
-    echo '<button type="button" class="btn btn-flotante" disabled data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subir archivo</button>';
-    echo '<a type="button" class="btn btn-flotante" disabled">Subir archivo</a>';
-  } else {
-    echo '<a type="button" class="btn btn-flotante"  href="../controllers/uploadFiles_controller.php?space_name=' . $space_name . '&space_id=' . $space_id . '">Subir archivo</a>';
-  }
-  ?>
-  <!----------------------------------------------------------------------------------->
-  <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+  <!------------------------------------------------------------------->
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-<script>
-  $(document).ready(function() {
-    $(".botonVer").click(function() {
-      var src = $(this).closest(".col-xl-2").find("img").attr("src2");
-      $("#imageModal").modal("show");
-      $("#imageModal .modal-body").html('<img src="' + src + '" class="img-fluid">');
-    });
-  });
-</script>
-<div class="modal" tabindex="-1" role="dialog" id="imageModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body"></div>
-    </div>
-  </div>
-</div>
 
 </html>

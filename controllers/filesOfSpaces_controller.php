@@ -119,8 +119,21 @@
                     $file_info = array();
                     $pathinfo = pathinfo($file);
                     $file_info['filename'] = $pathinfo['filename'];
+
+                    if (!array_key_exists("extension",$file_info))
+                    {
+                        $file_info['extension'] = '';
+                    }else{
+                        
+                    }
+
+                    if(!array_key_exists("extension",$pathinfo)){
+
+                    }else{
+                        $file_info['extension'] = strtolower($pathinfo['extension']);
+                    }
+
                     
-                    $file_info['extension'] = strtolower($pathinfo['extension']);
                     
                     switch($file_info['extension']){
                         default:

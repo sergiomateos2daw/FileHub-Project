@@ -100,7 +100,7 @@ if (!isset($_SESSION['email'])) {
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <button class="dropdown-item" disabled type="button"><?= $_SESSION['name'] ?></button>
-              <a class="dropdown-item" type="button">Modificar perfil</a>
+              <a class="dropdown-item" type="button" href="./controllers/profile_controller.php">Administrar perfil</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" type="button" href="./controllers/logout_controller.php">Cerrar sesión</a>
             </div>
@@ -151,12 +151,13 @@ if (!isset($_SESSION['email'])) {
                           </h3>
                           <p class="post-description">' . $dato["description"] . '</p>
                           <span class="post-date"><i class="fa fa-file-o"></i>' . $dato["num_files"] . '</span>
-                          <button type="button" class="btn btn-danger read-more" data-toggle="modal" data-target="#exampleModalCenter">
+                          <button type="button" class="btn btn-danger read-more" data-toggle="modal" data-target="#exampleModalCenter'.$dato["id"].'">
                             Eliminar
                           </button>
                           
                       </div>
                   </div>';
+            // generarModalEliminar($dato["id"], $_SESSION['user_id'], $dato["name"]);
           }
           ?>
         </div>
@@ -200,8 +201,13 @@ if (!isset($_SESSION['email'])) {
       </div>
     </div>
   </div>
+  <?php
+    foreach ($datos as $dato) {
+    generarModalEliminar($dato["id"], $_SESSION['user_id'], $dato["name"]);
+    }
+  ?>
   <!---------------------------- CONFIRMACION DE BORRADO ------------------------------>
-  <!-- Modal -->
+  <!-- Modal
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -219,11 +225,11 @@ if (!isset($_SESSION['email'])) {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <?php echo '<a href="./controllers/removeSpace_controller.php?space_id=' . $dato["id"] . '&user_id=' . $_SESSION['user_id'] . '" type="button" class="btn btn-danger">Eliminar espacio</a>' ?>
+          <a href="./controllers/removeSpace_controller.php?space_id=$space_id&user_id=$user_id" type="button" class="btn btn-danger">Eliminar espacio</a>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!----------------------------------------------------------------------------------->
   <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
