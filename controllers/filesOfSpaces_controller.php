@@ -108,6 +108,7 @@
     $GLOBALS["num_files"] = 0;
 
     function mostarFichero($user_id, $space_id, $space_name){
+
         $GLOBALS["num_files"] = 0;
         $path = "../Spaces/$user_id/$space_id";
         if ($handler = opendir($path)) {
@@ -252,7 +253,8 @@
                     }
                     $ruta = "../Spaces/$user_id/$space_id/$file";
                     if($file_info['extension']=='png' || $file_info['extension']=='jpg' || $file_info['extension']=='webp' || $file_info['extension']=='bmp' || $file_info['extension']=='gif' || $file_info['extension']=='tiff' ||$file_info['extension']=='svg'){
-                    echo '<div class="col-xl-2 col-lg-4 col-md-6 mb-4">
+                        $animation_class = 'file-animation';
+                        echo '<div class="col-xl-2 col-lg-4 col-md-6 mb-4 ' . $animation_class . '">
                                 <div class="bg-white rounded shadow-sm"><img src="' . $file_info['image'] . '" src2="' . $ruta . '" alt="" class="img-fluid card-img-top">
                                     <div class="p-4">
                                         <div class="labelContainer"><span>' . $file_info['filename'] . '</span></div>
@@ -268,7 +270,8 @@
                             </div>
                             ';
                     }else{
-                    echo '<div class="col-xl-2 col-lg-4 col-md-6 mb-4">
+                        $animation_class = 'file-animation';
+                        echo '<div class="col-xl-2 col-lg-4 col-md-6 mb-4 ' . $animation_class . '">
                                 <div class="bg-white rounded shadow-sm"><img src="' . $file_info['image'] . '" src2="' . $ruta . '" alt="" class="img-fluid card-img-top">
                                     <div class="p-4">
                                         <div class="labelContainer"><span>' . $file_info['filename'] . '</span></div>

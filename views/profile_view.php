@@ -75,15 +75,15 @@ if (!isset($_SESSION['email'])) {
   <div class="container-fluid">
     <div class="px-lg-5">
       <div class="row py-5">
-        <div class="col-lg-12 bg-white rounded shadow-sm">
-          <h1>Modifica los datos de tu cuenta</h1><br>
-          <form method="POST" action="../controllers/insertNewPass_controller.php">
+        <div class="col-lg-12 bg-white rounded shadow-sm title"><br>
+          <h1>Cambia tu nombre desde aquí</h1><br>
+          <form method="POST" action="../controllers/changeName_controller.php">
             <div class="form-outline mb-4">
               <label class="form-label" for="name">Nombre</label>
                 <input type="text" id="form2Example11" name="name" class="form-control" value="<?= $_SESSION['name'] ?>" required/>
             </div>
-            <div class="text-center pt-1 mb-5 pb-1">
-                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Actualizar</button>
+            <div class="text-center pt-1 mb-5 pb-5">
+                <button class="btn btn-primary btn-block fa-md gradient-custom-2 mb-3" type="submit">Actualizar</button>
             </div>
           </form>
           <p></p>

@@ -31,6 +31,21 @@ if (!isset($_SESSION['email'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/a522cdd2e0.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../styles/spaces_styles.css">
+  <style>
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .file-animation {
+      animation: fadeIn 1s ease-out;
+    }
+  </style>
 
   <!------------------------------------------>
 </head>
@@ -86,6 +101,8 @@ if (!isset($_SESSION['email'])) {
       </div>
     </div>
   </div>
+  <!------------------ ANIMACION DE APARCION DE FICHEROS -------------------->
+  
   <!-------------------------- BOTON SUBIR FICHERO --------------------------->
   <?php
   if ($porcentaje_usado >= 100) {

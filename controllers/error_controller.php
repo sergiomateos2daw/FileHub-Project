@@ -53,5 +53,8 @@
         case 007:
             alert_mensaje_success("Contraseña actulizada correctamente.");   
         break;
+        case 010:
+            alert_mensaje_success("Inicia sesión de nuevo para finalizar el cambio de nombre.");   
+        break;
     }
 ?>

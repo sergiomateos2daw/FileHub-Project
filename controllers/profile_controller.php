@@ -5,7 +5,7 @@
         exit();
     }
     //Llamada al modelo
-    
+    require_once("../controllers/error_controller.php");
     require_once("../models/profile_model.php");
     require_once("../db/conexion.php");
 
