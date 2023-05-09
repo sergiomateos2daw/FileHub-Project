@@ -19,6 +19,8 @@
         }
         $contador_espacios += 1;
     }
+
+    $per->update_num_spaces($dato["id_user"],$contador_espacios);
     
     function obtenerPorcentaje($cantidad, $total) {
         $porcentaje = ((float)$cantidad * 100) / $total; // Regla de tres

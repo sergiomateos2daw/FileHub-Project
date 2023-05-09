@@ -27,5 +27,16 @@ class spaces_model{
         closedir($dh);
         @rmdir($dir);
     }
+
+    public function update_num_spaces($user_id, $num_spaces){
+        
+        $query = "UPDATE users set num_spaces = $num_spaces where id = $user_id";
+
+        $this->db=Conectar::conexion();
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+    
+    }
 }
 ?>

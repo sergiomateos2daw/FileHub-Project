@@ -85,7 +85,8 @@
 
         echo '<div class="row py-5">
         <div class="col-lg-12  bg-white rounded shadow-sm">
-          <h1 class="display-6">'.$space_name .' </h1>';
+        <br>
+          <h1 class="display-6 title">'.$space_name .' </h1>';
         if($espacio_usado>0){
             echo '
             <p class="lead">Contiene '.$num_files2.' archivos.</p>
@@ -108,7 +109,7 @@
     $GLOBALS["num_files"] = 0;
 
     function mostarFichero($user_id, $space_id, $space_name){
-
+        
         $GLOBALS["num_files"] = 0;
         $path = "../Spaces/$user_id/$space_id";
         if ($handler = opendir($path)) {

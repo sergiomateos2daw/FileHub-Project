@@ -24,5 +24,19 @@ class createSpace_model{
         header('Location: ../index.php');
         exit();
     }
+
+    public function read_num_spaces($user_id){
+        //Saneamos los datos del formulario Filter_sanitize
+
+        $stmt = $this->db->prepare("SELECT num_spaces FROM users WHERE id = $user_id");
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result($num_spaces);
+        $stmt->fetch();
+        $num_spaces = $num_spaces;
+        $stmt->close();
+        return $num_spaces;
+    }
+
 }
 ?>

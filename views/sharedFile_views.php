@@ -59,7 +59,7 @@
               echo '<h1 class="display-6">Opss! Enlace de descarga no válido</h1>';
               echo '<p>Puede que el enlace haya caducado o simplemente que la ruta (URL) esté equivocada.</p>';
             }else{
-              echo '<h1 class="display-6">Descarga ahora</h1>';
+              echo '<h1 class="display-6 title">¡Descarga ahora!</h1>';
               echo '<p>Archivo compartido: <b>'.$file.'</b></p>';
               echo '<a type="button" class="btn btn-primary" href="../controllers/downloadSharedFile_controller.php?file='.$file.'&location='.$location.'">Descargar</a><p>';
             }

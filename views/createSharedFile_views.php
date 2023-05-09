@@ -77,7 +77,8 @@ if (!isset($_SESSION['email'])) {
     <div class="px-lg-5">
       <div class="row py-5">
         <div class="col-lg-12 bg-white rounded shadow-sm">
-          <h1>¡Listo!</h1>
+          <br>
+          <h1 class="title">¡Listo!</h1>
           <p>Cualquiera que obtenga este enlace podrá descargar una copia del archivo <b><?=$file?></b></p>
           <h5 class="link-shared">Enlace de descarga: <a href="<?=$url_created?>"><?=$url_created?></a></h5><br>
           <a class="btn btn-primary" href="../controllers/filesOfSpaces_controller.php?space_name=<?=$space_name?>&space_id=<?=$space_id?>">Volver a <?=$space_name?></a>
