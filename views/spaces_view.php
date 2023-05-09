@@ -50,6 +50,7 @@ if (!isset($_SESSION['email'])) {
 </script>
 
 <body>
+<div class="contenedor-unico">
   <!----------------------- NAVBAR ---------------------->
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,6 +135,7 @@ if (!isset($_SESSION['email'])) {
   </div>
   <!------------------------------- ESPACIOS ------------------------------>
   <link rel="stylesheet" href="./styles/spaces_styles.css">
+  
   <div class="container-fluid">
     <div class="row-flex">
       <div class="col-md-12">
@@ -164,6 +166,7 @@ if (!isset($_SESSION['email'])) {
       </div>
     </div>
   </div>
+  
   <?php
   if ($contador_espacios >= 8) {
     echo '<button type="button" class="btn btn-flotante" disabled data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo espacio</button>';
@@ -233,6 +236,7 @@ if (!isset($_SESSION['email'])) {
   <!----------------------------------------------------------------------------------->
   <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+</div>
 </body>
 
 </html>

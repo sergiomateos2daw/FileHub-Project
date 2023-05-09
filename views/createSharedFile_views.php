@@ -36,6 +36,7 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body onkeydown="return (event.keyCode != 116)">
+<div class="contenedor-unico">
   <!----------------------- NAVBAR ---------------------->
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -86,6 +87,7 @@ if (!isset($_SESSION['email'])) {
     </div>
   </div>
   <!------------------------------------------------------------------->
+</div>
 </body>
 
 </html>

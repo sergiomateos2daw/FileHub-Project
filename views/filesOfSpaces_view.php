@@ -51,6 +51,7 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body>
+<div class="contenedor-unico">
   <!----------------------- NAVBAR ---------------------->
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -115,6 +116,7 @@ if (!isset($_SESSION['email'])) {
   <!----------------------------------------------------------------------------------->
   <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

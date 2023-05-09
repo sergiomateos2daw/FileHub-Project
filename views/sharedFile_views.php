@@ -30,6 +30,7 @@
 </head>
 
 <body>
+<div class="contenedor-unico">
   <!----------------------- NAVBAR ---------------------->
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -67,5 +68,5 @@
       </div>
     </div>
   </div>
-
+</div>
 </html>

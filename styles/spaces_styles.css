@@ -390,3 +390,13 @@ body {
     width: auto;
     transform: translateX(calc(100px - 100%));
   }
+
+  html{
+    background-image: url('../images/background1.png');
+		background-repeat: repeat;
+    background-color: #EEEEEE;
+  }
+  .contenedor-unico{
+    background-image: url('../images/background1.png');
+		background-repeat: repeat;
+  }

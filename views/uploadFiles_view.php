@@ -36,6 +36,7 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body>
+<div class="contenedor-unico">
   <!----------------------- NAVBAR ---------------------->
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -133,7 +134,7 @@ if (!isset($_SESSION['email'])) {
       }
     };
   </script>
-
+</div>
 </body>
 
 </html>
